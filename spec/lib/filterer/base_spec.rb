@@ -326,6 +326,11 @@ describe Filterer::Base do
         @filterer = PaginationFiltererWithOverride.new(per_page: 100000)
         expect(@filterer.meta[:per_page]).to eq(1000)
       end
+
+      it 'can accepts per_page as a string' do
+        @filterer = PaginationFiltererWithOverride.new(per_page: '15')
+        expect(@filterer.meta[:per_page]).to eq(15)
+      end
     end
   end
 
